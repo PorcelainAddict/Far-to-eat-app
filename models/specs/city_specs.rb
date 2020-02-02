@@ -8,7 +8,7 @@ require_relative('../city.rb')
 class TestCity <MiniTest::Test
 
   def setup
-    options = {"id" => 1, "name" => "Barcelona", "travelled" => "True"}
+    options = {"id" => 1, "name" => "Barcelona", "travelled" => false}
     @city = City.new(options)
   end
 
@@ -25,8 +25,8 @@ class TestCity <MiniTest::Test
 
   def test_travelled()
     result = @city.travelled
-    assert_equal("True", result)
-  end 
+    assert_equal(false, result)
+  end
 
 
 end

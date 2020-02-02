@@ -8,7 +8,8 @@ require_relative('../country.rb')
 class TestCountry < MiniTest::Test
 
   def setup
-    options = {"id" => 1, "name" => "Spain", "travelled" => "true"}
+    options = {"id" => 1, "name" => "Spain",
+       "travelled" => false}
     @country = Country.new(options)
   end
 
@@ -25,7 +26,7 @@ class TestCountry < MiniTest::Test
 
   def test_travelled
     result = @country.travelled
-    assert_equal("true", result)
+    assert_equal(false, result)
   end
 
 

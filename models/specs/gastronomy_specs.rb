@@ -10,7 +10,7 @@ class TestGastronomy < MiniTest::Test
   def setup
     options = {"id" => 1, "name" => "Bitacora",
       "address" => "Carrer de Balboa, 1, 08003 Barcelona, Spain",
-    "food" => "Seafood", "alcohol" => "Beers & Wine"}
+    "food" => "Seafood", "alcohol" => "Beers & Wine", "country_id" => countries.id}
     @gastronomy = Gastronomy.new(options)
   end
 
@@ -37,7 +37,7 @@ class TestGastronomy < MiniTest::Test
   def test_alcohol
     result = @gastronomy.alcohol
     assert_equal("Beers & Wine", result)
-  end 
+  end
 
 
 end

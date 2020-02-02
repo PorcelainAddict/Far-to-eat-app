@@ -20,5 +20,5 @@ CREATE TABLE gastronomies (
   address VARCHAR(255),
   food VARCHAR(255),
   alcohol VARCHAR(255),
-  country_id INT REFERENCES countries(id)
+  city_id INT REFERENCES cities(id)
 );
