@@ -1,0 +1,11 @@
+<p>it's a me mario</p>
+<p>Tell me which country yer looking to eat in..</p>
+
+<% for country in @country %>
+ <p><%= country.name() %></p>
+ <p> See <a href="/country/<%= country.id %>">more</a></p>
+ <p><%= country.travelled() %></p>
+
+<hr />
+<% end %>
+<p>Add another <a href="/countries/new">country</a></p>

@@ -3,18 +3,19 @@ require_relative('../db/sql_runner.rb')
 class City
 
   attr_reader :id
-  attr_accessor :name, :travelled
+  attr_accessor :name, :travelled, :country_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id'].to_i
     @name = options['name']
     @travelled = options['travelled']
+    @country_id = options['country_id'].to_i
   end
 
   def save ()
-    sql = "INSERT INTO cities (name, travelled)
-    VALUES ($1, $2) RETURNING id"
-    values = [@name, @travelled]
+    sql = "INSERT INTO cities (name, travelled, country_id)
+    VALUES ($1, $2, $3) RETURNING id"
+    values = [@name, @travelled, @country_id]
     cities = SqlRunner.run(sql, values).first
     @id = cities['id'].to_i
   end
@@ -44,7 +45,7 @@ class City
     values = [id]
     ciudad = SqlRunner.run(sql, values)
     result = City.new(ciudad.first)
-  end 
+  end
 
   def self.delete_all()
     sql = "DELETE FROM cities"

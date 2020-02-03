@@ -39,31 +39,36 @@ country4.save()
 
 city1 = City.new({
   "name" => "Glasgow",
-  "travelled" => true
+  "travelled" => true,
+  "country_id" => country1.id
   })
 city1.save()
 
 city2 = City.new({
   "name" => "Inverness",
-  "travelled" => false
+  "travelled" => false,
+  "country_id" => country1.id
   })
 city2.save()
 
 city3 = City.new({
   "name" => "Barcelona",
-  "travelled" => true
+  "travelled" => true,
+  "country_id" => country3.id
   })
 city3.save()
 
 city4 = City.new({
   "name" => "Galway",
-  "travelled" => true
+  "travelled" => true,
+  "country_id" => country2.id
   })
 city4.save()
 
 city5 = City.new({
   "name" => "Lisbon",
-  "travelled" => false
+  "travelled" => false,
+  "country_id" => country4.id
   })
 city5.save()
 

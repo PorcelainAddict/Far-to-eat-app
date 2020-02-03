@@ -11,7 +11,9 @@ travelled BOOLEAN
 CREATE TABLE cities (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  travelled BOOLEAN
+  travelled BOOLEAN,
+  country_id INT REFERENCES countries(id)
+
 );
 
 CREATE TABLE gastronomies (
