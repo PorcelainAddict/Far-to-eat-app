@@ -3,7 +3,7 @@ require('sinatra/contrib/all')
 require('pry-byebug')
 require_relative('../models/country.rb')
 require_relative('../models/city.rb')
-also_reload('../models/*')
+# also_reload('../models/*')
 
 
 
@@ -14,12 +14,13 @@ get '/countries' do
   erb(:'country-views/index')
 end
 
-get '/country/:id' do
+get '/countries/:id' do
   country_id = params[:id]
   @country = Country.find(country_id)
-
   erb(:'city-views/index')
 end
+
+# get '/country/'
 
 
 

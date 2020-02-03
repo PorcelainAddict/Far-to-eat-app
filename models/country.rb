@@ -33,6 +33,13 @@ class Country
       SqlRunner.run(sql, values)
   end
 
+  def cities()
+    sql = "SELECT * FROM cities WHERE country_id = $1"
+    values = [@id]
+    cities_data = SqlRunner.run(sql, values)
+    return cities_data.map { |city| City.new(city)}
+  end
+
   def self.all()
     sql = "SELECT * FROM countries"
     countries = SqlRunner.run(sql)
@@ -43,7 +50,7 @@ class Country
     sql = "SELECT * FROM countries WHERE id = $1"
     values = [id]
     pais = SqlRunner.run(sql, values)
-    return City.new(pais.first)
+    return Country.new(pais.first)
   end
 
   def self.delete_all()

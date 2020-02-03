@@ -1,3 +1,10 @@
 <p>Welcome to <%= @country.name %> </p>
 
 <p>which city do you wanna eat in?</p>
+
+<% for city in @country.cities %>
+ <p><%= city.name() %></p>
+ <p><%= city.travelled %> </p>
+ <p>Where to <a href="/gatronomies">eat?<a/></p>
+<% end %>
+<p>Add another <a href="/city/new">city</a></p>
