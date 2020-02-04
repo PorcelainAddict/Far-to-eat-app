@@ -38,6 +38,15 @@ class Gastronomy
     SqlRunner.run(sql, values)
  end
 
+ def gastros
+   sql = "SELECT * FROM gastronomies WHERE city_id = $1"
+   values = [@id]
+   gastro_data = SqlRunner.run(sql, values)
+   return gastro_data.map { |gastro| Gastronomy.new(gastro)}
+ end
+
+
+
  def self.all ()
    sql = "SELECT * FROM gastronomies"
    gastro = SqlRunner.run(sql)
@@ -61,7 +70,7 @@ class Gastronomy
    WHERE id = $1"
    values = [id]
    SqlRunner.run(sql, values)
- end 
+ end
 
 
 

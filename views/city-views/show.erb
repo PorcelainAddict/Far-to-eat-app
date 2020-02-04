@@ -1,0 +1,11 @@
+<h1>hey <%= @city.name %> </h1>
+
+
+<% for gastro in @city.gastros %>
+<p>
+  <a href='/gastronomies/<%=gastro.id%>'>
+    <%= gastro.name %>
+  </a>
+</p>
+
+<% end %>

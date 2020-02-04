@@ -30,10 +30,16 @@ class City
         $1, $2
       )
       WHERE id = $3"
-      values = [@name, @travelled]
-      SqlRunner.run(sql, values)
-    end
+    values = [@name, @travelled]
+    SqlRunner.run(sql, values)
+  end
 
+  def gastros
+    sql = "SELECT * FROM gastronomies WHERE city_id = $1"
+    values = [@id]
+    gastro_data = SqlRunner.run(sql, values)
+    return gastro_data.map { |gastro| Gastronomy.new(gastro)}
+  end
 
   def self.all()
     sql = "SELECT * FROM cities"

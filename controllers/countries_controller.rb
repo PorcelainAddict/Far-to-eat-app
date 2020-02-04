@@ -10,8 +10,17 @@ require_relative('../models/city.rb')
 #GETS
 
 get '/countries' do
-  @country = Country.all()
+  @countries = Country.all()
   erb(:'country-views/index')
+end
+
+get '/countries/new' do
+  erb(:'country-views/new')
+end
+
+get '/countries/edit/:id' do
+  @country = Country.find(params[:id])
+  erb(:'country-views/edit')
 end
 
 get '/countries/:id' do
@@ -20,15 +29,24 @@ get '/countries/:id' do
   erb(:'city-views/index')
 end
 
-# get '/country/'
-
-
-
-
-
-
-
-
-
 
 #POSTS
+
+post '/countries/new' do
+  @NewCountry =Country.new(params)
+  @NewCountry.save()
+  redirect to '/countries'
+end
+
+post '/countries/delete' do
+  @country = Country.find(params[:id])
+  @country.act_of_god
+  erb(:'country-views/delete')
+end
+
+post '/countries/:id/edit' do
+  country_id = params[:id]
+  @country = Country.find(country_id)
+  @country.update()
+  redirect to '/countries'
+end

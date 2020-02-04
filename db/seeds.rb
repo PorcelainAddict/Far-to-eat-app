@@ -89,5 +89,10 @@ gastronomy3 = Gastronomy.new({"name" =>"Kurdish Street Food",
   "food" => "Middle Eastern", "alcohol" => "None", "city_id" => city1.id})
 gastronomy3.save()
 
+gastronomy4 = Gastronomy.new({"name" => "La Tasca Del Corral",
+  "address" => "Carrer de la Mercè, 17, 08002 Barcelona, Spain",
+  "food" => "Spanish/Med", "alcohol" => "Beer, Vermut, & Wine", "city_id" => city3.id})
+gastronomy4.save()
+
 binding.pry
 nil
