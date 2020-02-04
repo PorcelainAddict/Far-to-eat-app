@@ -12,7 +12,7 @@ CREATE TABLE cities (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   travelled BOOLEAN,
-  country_id INT REFERENCES countries(id)
+  country_id INT REFERENCES countries(id) on delete cascade
 
 );
 
@@ -22,5 +22,5 @@ CREATE TABLE gastronomies (
   address VARCHAR(255),
   food VARCHAR(255),
   alcohol VARCHAR(255),
-  city_id INT REFERENCES cities(id)
+  city_id INT REFERENCES cities(id) on delete cascade
 );

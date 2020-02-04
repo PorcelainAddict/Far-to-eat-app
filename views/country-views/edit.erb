@@ -1,6 +1,6 @@
 <h1>Edit yo country</h1>
 
-<form class="" action="/countries/edit<%= @country.id %>" method="post">
+<form class="" action="/countries/edit/<%= @country.id %>" method="post">
   <label for="name">You got the name wrong?</label>
   <input type="text" name="name" value="<%=@country.name%>">
   <label for="travelled">Not been here?</label>
@@ -9,6 +9,6 @@
     <<option value=False>No</option>
 
   </select>
-<input type="submit" name="updated country" value="Update Country">
+<input type="submit" value="Update Country"/>
 
 </form>

@@ -19,7 +19,7 @@ class Country
     @id = country['id'].to_i
   end
 
-  def update_country()
+  def update()
     sql = "UPDATE countries
     SET
     (
@@ -29,7 +29,7 @@ class Country
         $1, $2
       )
       WHERE id = $3"
-      values = [@name, @travelled]
+      values = [@name, @travelled, @id]
       SqlRunner.run(sql, values)
   end
 
@@ -58,10 +58,10 @@ class Country
     SqlRunner.run(sql)
   end
 
-  def self.act_of_god(id)
+  def self.act_of_god()
     sql = "DELETE FROM countries
     WHERE id = $1"
-    values = [id]
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 

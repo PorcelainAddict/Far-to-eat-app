@@ -17,6 +17,11 @@ get '/cities/new' do
   erb(:'city-views/new')
 end
 
+get '/cities/edit/:id' do
+  @city = City.find(params[:id])
+  erb(:'/city-views/edit')
+end
+
 get '/cities/:id' do
   city_id = params[:id]
   @city = City.find(city_id)
@@ -26,7 +31,13 @@ end
 #POSTS
 
 post '/countries/:id' do
-  @NewCountry =City.new(params)
-  @NewCountry.save()
+  @NewCity =City.new(params)
+  @NewCity.save()
   redirect to '/countries/:id'
+end
+
+post '/cities/edit/:id' do
+  city_id = params[:id]
+  @city = City.find(city_id)
+  @city.update()
 end

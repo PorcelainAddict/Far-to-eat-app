@@ -38,15 +38,18 @@ post '/countries/new' do
   redirect to '/countries'
 end
 
-post '/countries/delete' do
+post '/countries/edit/:id' do
+  # binding.pry
+  @country = Country.new(params)
+  @country.update()
+  redirect to '/countries'
+end
+
+
+
+post '/countries/delete/' do
+
   @country = Country.find(params[:id])
   @country.act_of_god
   erb(:'country-views/delete')
-end
-
-post '/countries/:id/edit' do
-  country_id = params[:id]
-  @country = Country.find(country_id)
-  @country.update()
-  redirect to '/countries'
 end

@@ -34,7 +34,7 @@ class Gastronomy
         $1, $2, $3, $4
         )
     WHERE id = $5"
-    values = [@name, @address, @food, @alcohol]
+    values = [@name, @address, @food, @alcohol, @city_id]
     SqlRunner.run(sql, values)
  end
 
@@ -65,10 +65,10 @@ class Gastronomy
    SqlRunner.run(sql)
  end
 
- def self.eviction(id)
+ def self.eviction()
    sql = "DELETE FROM gastronomies
    WHERE id = $1"
-   values = [id]
+   values = [@id]
    SqlRunner.run(sql, values)
  end
 
