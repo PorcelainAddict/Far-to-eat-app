@@ -1,13 +1,15 @@
-<p>it's a me mario</p>
-<p>Tell me which country yer looking to eat in..</p>
+<p>It's a me mario</p>
+<p>Tell me which country ya wanna to eat in..</p>
 
 <% for country in @countries %>
  <p><%= country.name() %></p>
  <p> See <a href="/countries/<%= country.id %>">more</a></p>
  <p>Edit <a href= '/countries/edit/<%= country.id %>'>country</a></p>
- <p>Delete <a href= '/countries/delete'>country<a/></p>
+ 
  <p><%= country.travelled() %></p>
+<form class="" action="/countries/delete/<%= country.id %>" method="post">
+<input type="submit" name="countries/delete" value="Delete country">
+</form>
 
-<hr />
 <% end %>
 <p>Add another <a href="/countries/new">country</a></p>

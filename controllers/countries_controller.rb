@@ -29,6 +29,12 @@ get '/countries/:id' do
   erb(:'city-views/index')
 end
 
+# this route will show the new city form for the country we are "in"
+get '/countries/:id/cities/new' do
+  @country = Country.find(params[:id])
+  erb(:'city-views/new')
+end
+
 
 #POSTS
 
@@ -39,17 +45,31 @@ post '/countries/new' do
 end
 
 post '/countries/edit/:id' do
-  # binding.pry
+
   @country = Country.new(params)
   @country.update()
   redirect to '/countries'
 end
 
+#add new city to countries
+post '/countries/:country_id/cities/new' do
+  @NewCity = City.new(params)
+  @NewCity.save()
+  redirect to "/countries/#{params[:country_id]}"
+end
 
+post '/countries/delete/:id' do
 
-post '/countries/delete/' do
-
-  @country = Country.find(params[:id])
-  @country.act_of_god
+  Country.act_of_god(params[:id])
+  
   erb(:'country-views/delete')
+end
+
+post '/cities/delete/:id' do
+
+
+  City.act_of_god(params[:id])
+
+  redirect to '/countries'
+
 end

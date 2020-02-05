@@ -12,9 +12,7 @@ get '/gastronomies' do
   erb(:'gastro-views/index')
 end
 
-get '/gastronomies/new' do
-  erb(:'gastro-views/new')
-end
+
 
 
 get '/gastronomies/:id' do
@@ -25,13 +23,11 @@ end
 
 #POSTS
 
-post '/gastronomies/new' do
-  @gastro = Gastronomy.new(params)
-  @gastro.save()
-  redirect to '/cities/:id'
-end
 
-post '/gastronomies/delete' do
-  @gastro = params[:id]
-  @gastro.eviction
+
+post '/gastronomies/delete/:id' do
+  gastro_to_be_deleted = Gastronomy.find(params[:id])
+  Gastronomy.eviction(params[:id])
+
+  redirect to "/cities/#{gastro_to_be_deleted.city_id}"
 end

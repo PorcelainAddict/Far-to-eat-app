@@ -1,1 +1,16 @@
 <p>hey</p>
+
+<h1> Edit <%= @city.name %> </h1>
+
+<form class="form-cities" action="/cities/edit/<%= @city.id %>" method="post">
+  <label for="name">You got the name wrong?</label>
+  <input type="text" name="name" value=<%= @city.name %>>
+  <input id="joke-control" value=<%= @city.country_id %> name="country_id"/>
+  <label for="travelled">Not been here?</label>
+  <select class="" name="travelled">
+    <option value=True>Yes</option>
+    <option value=False>No</option>
+
+  </select>
+<input type="submit" value="Update City"/>
+</form>

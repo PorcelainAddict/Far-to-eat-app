@@ -1,6 +1,6 @@
 <h1>A New recommendation!</h1>
 
-<form class="" action="/gastronomies/new" method="post">
+<form class="" action="/cities/<%= @city.id %>/gastronomies/new" method="post">
   <label for="name">What's this new haunt called?</label>
   <input type="text" name="name" value="">
   <label for="address">Where's this place at?</label>

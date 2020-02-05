@@ -13,10 +13,7 @@ get '/cities' do
   erb(:'city-views/index')
 end
 
-get '/cities/new' do
-  erb(:'city-views/new')
-end
-
+# get the edit city form
 get '/cities/edit/:id' do
   @city = City.find(params[:id])
   erb(:'/city-views/edit')
@@ -28,16 +25,26 @@ get '/cities/:id' do
   erb(:'city-views/show')
 end
 
-#POSTS
-
-post '/countries/:id' do
-  @NewCity =City.new(params)
-  @NewCity.save()
-  redirect to '/countries/:id'
+# get the new gastronomy form for this city
+get '/cities/:city_id/gastronomies/new' do
+  city_id = params[:city_id]
+  @city = City.find(city_id)
+  erb(:'gastro-views/new')
 end
 
+#POSTS
+
+# save a new gastronomy to this city.
+post '/cities/:city_id/gastronomies/new' do
+  @gastronomy = Gastronomy.new(params)
+  @gastronomy.save()
+  redirect to "/cities/#{params[:city_id]}"
+end
+
+
 post '/cities/edit/:id' do
-  city_id = params[:id]
-  @city = City.find(city_id)
+  binding.pry
+  @city = City.new(params)
   @city.update()
+  redirect to '/countries'
 end

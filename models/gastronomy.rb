@@ -65,10 +65,10 @@ class Gastronomy
    SqlRunner.run(sql)
  end
 
- def self.eviction()
+ def self.eviction(id)
    sql = "DELETE FROM gastronomies
    WHERE id = $1"
-   values = [@id]
+   values = [id.to_i]
    SqlRunner.run(sql, values)
  end
 

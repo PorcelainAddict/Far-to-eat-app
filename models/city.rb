@@ -20,7 +20,7 @@ class City
     @id = cities['id'].to_i
   end
 
-  def update_city()
+  def update()
     sql = "UPDATE cities
     SET
     (
@@ -30,7 +30,7 @@ class City
         $1, $2
       )
       WHERE id = $3"
-    values = [@name, @travelled]
+    values = [@name, @travelled, @country_id]
     SqlRunner.run(sql, values)
   end
 
@@ -48,7 +48,7 @@ class City
 
   def self.find(id)
     sql = "SELECT * FROM cities WHERE id = $1"
-    values = [id]
+    values = [id.to_i]
     ciudad = SqlRunner.run(sql, values)
     result = City.new(ciudad.first)
   end
@@ -61,7 +61,7 @@ class City
   def self.act_of_god(id)
     sql = "DELETE FROM cities
     WHERE id = $1"
-    values = [id]
+    values = [id.to_i]
     SqlRunner.run(sql, values)
   end
 

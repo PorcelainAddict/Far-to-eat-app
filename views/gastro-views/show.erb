@@ -5,6 +5,6 @@
 <p>If you wanna eat here it's at <%= @gastronomy.address%></p>
 <p>You can some tasty tasty <%= @gastronomy.food%></p>
 <p>They serve <%= @gastronomy.alcohol%></p>
-
-
-<p>Get outta my life <a href="/gastronomies/delete"><%= @gastronomy.name %></a></p>
+<form class="" action="/gastronomies/delete/<%= @gastronomy.id %>" method="post">
+<input type="submit" name="gastronomy/delete" value="Get outta here <%= @gastronomy.name %>">
+</form>

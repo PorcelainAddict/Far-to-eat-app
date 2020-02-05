@@ -1,0 +1,32 @@
+body {
+  background: url(https://news.wtm.com/wp-content/uploads/2015/07/Food-in-Travel.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: rgba(0.25, 255, 255, 255)
+}
+h1 {
+  font-family: fantasy;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.first-page {
+  font-family: fantasy;
+  text-align: center;
+}
+.first-para {
+  font-family: monospace;
+  text-align: center;
+}
+
+.nav {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+#joke-control {
+  display: none;
+}

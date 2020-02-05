@@ -58,10 +58,10 @@ class Country
     SqlRunner.run(sql)
   end
 
-  def self.act_of_god()
+  def self.act_of_god(id)
     sql = "DELETE FROM countries
     WHERE id = $1"
-    values = [@id]
+    values = [id]
     SqlRunner.run(sql, values)
   end
 
