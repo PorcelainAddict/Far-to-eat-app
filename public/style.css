@@ -21,11 +21,62 @@ h1 {
   text-align: center;
 }
 
+
 .nav {
+  border-style: solid;
+  background-color: #FEFCA8; opacity: 0.75;
+  border: 10px, 30px, 20px, 30px;
+  margin-top: 200px;
   flex-wrap: wrap;
   justify-content: flex-start;
   text-align: center;
 }
+
+.nav-links {
+  font-size: 20px;
+  color: black;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.countries {
+  font-family: monospace;
+  background-color: #FEFCA8; opacity: 0.75;
+  padding: 100px;
+
+}
+
+.countries-header {
+  text-align: center;
+  font-size: 40px;
+  font-family: cursive;
+}
+
+.travelled {
+  font-family: fantasy;
+  color: green;
+}
+
+.Welcome {
+  font-family: fantasy;
+  background-color: #FEFCA8; opacity: 0.75;
+  border: 10px, 30px, 20px, 30px;
+  margin-top: 200px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.welcome_city {
+  font-family: fantasy;
+  background-color: #FEFCA8; opacity: 0.75;
+  border: 10px, 30px, 20px, 30px;
+  margin-top: 200px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: center;
+}
+
 
 #joke-control {
   display: none;

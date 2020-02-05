@@ -1,4 +1,7 @@
-<h1>hey <%= @city.name %> </h1>
+<div class="welcome_city">
+
+
+<h1>Howdy, surely there's some tasty places in <%= @city.name %> </h1>
 
 
 <% for gastro in @city.gastros %>
@@ -10,3 +13,4 @@
 
 <% end %>
 <p>Add a new place to <a href="/cities/<%= @city.id %>/gastronomies/new">eat </a> in <%= @city.name %>!!!</p>
+</div>

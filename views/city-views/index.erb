@@ -1,3 +1,6 @@
+<div class="Welcome">
+
+
 <h1>Welcome to <%= @country.name %> </h1>
 
 <p>Which city do you wanna eat in?</p>
@@ -9,11 +12,10 @@
    <p>Edit <a href= '/cities/edit/<%= city.id%>'>city</a></p>
      <form class="" action="/cities/delete/<%= city.id %>" method="post">
        <input type="submit" name="cities/delete" value="delete city">
-</form
+</form>
 <% end %>
 
 <p>Add another <a href="/countries/<%= @country.id%>/cities/new">city</a> to <%= @country.name %></p>
 
 
-
-</form>
+</div>
